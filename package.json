@@ -1,0 +1,9 @@
+{
+  "name": "himalaya-mkt-system",
+  "version": "1.0.0",
+  "description": "Himalaya MKT EC Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
