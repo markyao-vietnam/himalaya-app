@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký Cộng tác viên Livestream – Himalaya Herbal VN</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',system-ui,sans-serif; background:linear-gradient(135deg,#0F2744 0%,#1D4ED8 100%); min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px 16px; }
+  .card { background:#fff; border-radius:16px; padding:36px; width:100%; max-width:520px; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+  .logo { text-align:center; margin-bottom:24px; }
+  .logo-icon { font-size:48px; }
+  .logo h1 { font-size:20px; font-weight:800; color:#0F172A; margin-top:8px; }
+  .logo p { font-size:13px; color:#64748B; margin-top:4px; }
+  .highlight-box { background:#EFF6FF; border:1px solid #BFDBFE; border-radius:10px; padding:14px 16px; margin-bottom:24px; }
+  .highlight-box p { font-size:13px; color:#1D4ED8; line-height:1.6; }
+  .highlight-box strong { font-size:15px; }
+  .form-group { margin-bottom:16px; }
+  .form-group label { display:block; font-size:13px; font-weight:600; color:#334155; margin-bottom:5px; }
+  .required { color:#DC2626; }
+  input[type=text], input[type=tel], select, textarea { width:100%; padding:10px 12px; border:1px solid #CBD5E1; border-radius:8px; font-size:14px; color:#0F172A; outline:none; transition:border .15s; }
+  input:focus, select:focus, textarea:focus { border-color:#1D4ED8; box-shadow:0 0 0 3px rgba(29,78,216,0.1); }
+  textarea { resize:vertical; min-height:80px; }
+  .radio-group { display:flex; gap:16px; flex-wrap:wrap; margin-top:6px; }
+  .radio-label { display:flex; align-items:center; gap:6px; font-size:14px; cursor:pointer; padding:8px 14px; border:1px solid #CBD5E1; border-radius:8px; transition:all .15s; }
+  .radio-label:has(input:checked) { background:#EFF6FF; border-color:#1D4ED8; color:#1D4ED8; font-weight:600; }
+  .radio-label input { accent-color:#1D4ED8; }
+  .btn { width:100%; padding:14px; background:#1D4ED8; color:#fff; border:none; border-radius:10px; font-size:15px; font-weight:700; cursor:pointer; margin-top:8px; transition:background .15s; }
+  .btn:hover { background:#1E40AF; }
+  .btn:disabled { background:#93C5FD; cursor:not-allowed; }
+  .success { display:none; text-align:center; padding:32px; }
+  .success-icon { font-size:64px; margin-bottom:16px; }
+  .success h2 { font-size:22px; font-weight:800; color:#15803D; margin-bottom:8px; }
+  .success p { font-size:14px; color:#64748B; line-height:1.6; }
+  .error-msg { color:#DC2626; font-size:13px; margin-top:8px; padding:10px 12px; background:#FEE2E2; border-radius:8px; display:none; }
+  .divider { border:none; border-top:1px solid #E2E8F0; margin:20px 0; }
+  .footer { text-align:center; margin-top:20px; font-size:12px; color:#94A3B8; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="form-section">
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <h1>Himalaya Herbal Việt Nam</h1>
+      <p>Đăng ký Cộng tác viên Livestream</p>
+    </div>
+
+    <div class="highlight-box">
+      <p>💸 <strong>Mức lương: 40.000 ₫/giờ + thưởng</strong><br>
+      ⏰ Các ca: Sáng (10-12h) • Chiều (14-16h) • Tối (19-21h) • Khuya (22-24h)<br>
+      📍 Làm việc tại nhà qua điện thoại/máy tính<br>
+      <small style="opacity:.8">Lưu ý: Mức lương trên chưa bao gồm 10% thuế TNCN</small></p>
+    </div>
+
+    <form id="reg-form" onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label>Họ và tên đầy đủ <span class="required">*</span></label>
+        <input type="text" id="f-name" placeholder="Nguyễn Thị A" required>
+      </div>
+
+      <div class="form-group">
+        <label>Số điện thoại <span class="required">*</span></label>
+        <input type="tel" id="f-phone" placeholder="0901234567" required>
+      </div>
+
+      <div class="form-group">
+        <label>Bạn đã có kinh nghiệm livestream trước đây chưa? <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-label"><input type="radio" name="exp" value="1" required> ✅ Có kinh nghiệm</label>
+          <label class="radio-label"><input type="radio" name="exp" value="0"> ❌ Chưa có</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Ca làm việc ưa thích</label>
+        <select id="f-shift">
+          <option value="">-- Chọn ca --</option>
+          <option value="Ca sáng (10-12h)">☀️ Ca sáng (10h - 12h)</option>
+          <option value="Ca chiều (14-16h)">🌤 Ca chiều (14h - 16h)</option>
+          <option value="Ca tối (19-21h)">🌙 Ca tối (19h - 21h)</option>
+          <option value="Ca khuya (22-24h)">⭐ Ca khuya (22h - 24h)</option>
+          <option value="Linh hoạt">🔄 Linh hoạt (bất kỳ ca)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>💸 Bạn đồng ý mức lương 40.000 ₫/giờ + thưởng? <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-label"><input type="radio" name="agree" value="1" required> ✅ Đồng ý</label>
+          <label class="radio-label"><input type="radio" name="agree" value="0"> ❌ Không đồng ý</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Ghi chú / Câu hỏi thêm</label>
+        <textarea id="f-notes" placeholder="Bạn có thể đặt câu hỏi hoặc ghi chú thêm tại đây..."></textarea>
+      </div>
+
+      <div class="error-msg" id="form-err"></div>
+      <button type="submit" class="btn" id="submit-btn">📩 Gửi đăng ký</button>
+    </form>
+
+    <hr class="divider">
+    <div class="footer">Himalaya Herbal Vietnam • Pioneer Wagon VN<br>Liên hệ: 0908 168 589</div>
+  </div>
+
+  <div class="success" id="success-section">
+    <div class="success-icon">🎉</div>
+    <h2>Đăng ký thành công!</h2>
+    <p>Cảm ơn bạn đã quan tâm đến vị trí Cộng tác viên Livestream tại <strong>Himalaya Herbal Việt Nam</strong>.<br><br>
+    Chúng tôi sẽ xem xét và <strong>liên hệ lại với bạn qua số điện thoại đã đăng ký</strong> trong thời gian sớm nhất.<br><br>
+    Chúc bạn một ngày tốt lành! 🌿</p>
+    <br>
+    <button class="btn" onclick="location.reload()" style="background:#15803D">📝 Đăng ký thêm</button>
+  </div>
+</div>
+
+<script>
+async function submitForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const errEl = document.getElementById('form-err');
+  errEl.style.display = 'none';
+
+  const name  = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const exp   = document.querySelector('input[name="exp"]:checked')?.value;
+  const agree = document.querySelector('input[name="agree"]:checked')?.value;
+  const shift = document.getElementById('f-shift').value;
+  const notes = document.getElementById('f-notes').value.trim();
+
+  if (!name)  { showErr('Vui lòng nhập họ tên'); return; }
+  if (!phone) { showErr('Vui lòng nhập số điện thoại'); return; }
+  if (!exp)   { showErr('Vui lòng chọn kinh nghiệm'); return; }
+  if (!agree) { showErr('Vui lòng chọn đồng ý/không đồng ý lương'); return; }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Đang gửi...';
+
+  try {
+    const res = await fetch('/api/public/ls-register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, has_exp: exp==='1', agree_salary: agree==='1', preferred_shift: shift, notes })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Lỗi gửi đăng ký');
+    document.getElementById('form-section').style.display = 'none';
+    document.getElementById('success-section').style.display = 'block';
+  } catch(err) {
+    showErr(err.message);
+    btn.disabled = false;
+    btn.textContent = '📩 Gửi đăng ký';
+  }
+}
+function showErr(msg) {
+  const el = document.getElementById('form-err');
+  el.textContent = '⚠️ ' + msg;
+  el.style.display = 'block';
+}
+</script>
+</body>
+</html>
