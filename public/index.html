@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Himalaya MKT EC System</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+
+<!-- Login Screen -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">🌿</div>
+    <h1>Himalaya MKT EC</h1>
+    <p>Hệ thống quản lý Marketing & E-Commerce</p>
+    <div class="login-form">
+      <div class="form-group">
+        <label>Tên đăng nhập</label>
+        <input type="text" id="l-user" placeholder="username" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label>Mật khẩu</label>
+        <input type="password" id="l-pass" placeholder="password" autocomplete="current-password">
+      </div>
+      <div id="login-err" class="error-msg" style="display:none"></div>
+      <button class="btn btn-primary w-full" onclick="doLogin()">Đăng nhập</button>
+    </div>
+  </div>
+</div>
+
+<!-- App Shell -->
+<div id="app" style="display:none">
+  <nav id="sidebar">
+    <div class="sidebar-logo">
+      <span>🌿</span>
+      <div><div class="logo-name">Himalaya MKT</div><div class="logo-sub">EC Management System</div></div>
+    </div>
+    <div class="sidebar-user">
+      <div class="user-avatar" id="nav-avatar">H</div>
+      <div><div class="user-name" id="nav-name">–</div><div class="user-role" id="nav-role">–</div></div>
+    </div>
+    <div class="nav-menu" id="nav-menu">
+      <div class="nav-section-label">TỔNG QUAN</div>
+      <div class="nav-item active" data-page="dashboard" onclick="goto('dashboard')"><span>📊</span> Dashboard</div>
+      <div class="nav-section-label">KẾ HOẠCH</div>
+      <div class="nav-item" data-page="kpi" onclick="goto('kpi')"><span>🎯</span> KPI theo tháng</div>
+      <div class="nav-item" data-page="branding" onclick="goto('branding')"><span>🎨</span> Chủ đề Branding</div>
+      <div class="nav-item" data-page="deals" onclick="goto('deals')"><span>🏷️</span> Deal Sàn & Kết quả</div>
+      <div class="nav-item" data-page="tasks" onclick="goto('tasks')"><span>📋</span> Kế hoạch theo tuần</div>
+      <div class="nav-section-label">SẢN PHẨM</div>
+      <div class="nav-item" data-page="products" onclick="goto('products')"><span>🧴</span> Bảng giá sản phẩm</div>
+      <div class="nav-section-label">LIVESTREAM</div>
+      <div class="nav-item" data-page="ls-schedule" onclick="goto('ls-schedule')"><span>📺</span> Lịch Livestream</div>
+      <div class="nav-item" data-page="ls-reg" onclick="goto('ls-reg')"><span>📝</span> Đăng ký Livestream</div>
+      <div class="nav-section-label">MARKETING</div>
+      <div class="nav-item" data-page="koc" onclick="goto('koc')"><span>🎥</span> KOC Booking</div>
+      <div class="nav-section-label">CÀI ĐẶT</div>
+      <div class="nav-item" data-page="profile" onclick="goto('profile')"><span>⚙️</span> Tài khoản của tôi</div>
+      <div class="nav-item" data-page="import" onclick="goto('import')"><span>📥</span> Nhập dữ liệu</div>
+      <div class="nav-section-label" id="nav-admin" style="display:none">QUẢN TRỊ</div>
+      <div class="nav-item" data-page="users" id="nav-users" onclick="goto('users')" style="display:none"><span>👥</span> Tài khoản</div>
+      <div class="nav-item" data-page="log" id="nav-log" onclick="goto('log')" style="display:none"><span>📜</span> Nhật ký hoạt động</div>
+    </div>
+    <div class="sidebar-footer">
+      <button class="btn-logout" onclick="doLogout()">⏻ Đăng xuất</button>
+    </div>
+  </nav>
+
+  <div id="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <h2 id="page-title">Dashboard</h2>
+      </div>
+      <div class="topbar-right" id="topbar-actions"></div>
+    </div>
+    <div id="content"></div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div id="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-title">–</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal()">Huỷ</button>
+      <button class="btn btn-primary" id="modal-confirm">Lưu</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast-container"></div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
